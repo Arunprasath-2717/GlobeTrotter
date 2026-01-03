@@ -1,0 +1,95 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* Background */
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F4F7FB; /* Calm background */
+}
+
+/* Login Card */
+.login-container {
+  background-color: #FFFFFF; /* Card */
+  width: 400px;
+  padding: 2.5rem 3rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* Heading */
+.login-container h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1.8rem;
+}
+
+/* Input Group */
+.input-group {
+  text-align: left;
+  margin-bottom: 1.2rem;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 0.4rem;
+  display: block;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem 0.85rem;
+  font-size: 0.95rem;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus State */
+.input-group input:focus {
+  border-color: #4FC3F7; /* Input focus */
+  box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.25);
+}
+
+/* Primary Button */
+button {
+  width: 100%;
+  padding: 0.85rem;
+  margin-top: 0.6rem;
+  background-color: #0288D1; /* Primary */
+  color: #FFFFFF;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+  background-color: #0277BD;
+  box-shadow: 0 8px 18px rgba(2, 136, 209, 0.35);
+}
+
+/* Secondary Button (if needed later) */
+.secondary-btn {
+  background-color: #90CAF9; /* Secondary */
+  color: #0f172a;
+  margin-top: 0.8rem;
+}
+
+.secondary-btn:hover {
+  background-color: #64B5F6;
+}

@@ -1,0 +1,137 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Background */
+body {
+  background-color: #FFFDE7; /* Exploration background */
+  color: #1f2937;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* App Container */
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Header */
+.top-bar {
+  background: linear-gradient(135deg, #81C784, #64B5F6); /* Nature → City */
+  color: white;
+  border-radius: 14px;
+  padding: 18px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.profile-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+/* Search Row */
+.search-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.search-row input {
+  flex: 1;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #E6E6E6;
+  background: white;
+}
+
+.search-row button {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  background: #64B5F6; /* City */
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.search-row button:hover {
+  background: #42A5F5;
+}
+
+/* Trip Sections */
+.trip-section {
+  margin-bottom: 36px;
+}
+
+.trip-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* Trip / Activity Cards */
+.trip-card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  padding: 22px 26px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.trip-card h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.trip-card p {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+/* Hover */
+.trip-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+}
+
+/* Category Tags */
+.tag {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 999px;
+  color: white;
+  margin-right: 6px;
+}
+
+.tag.nature {
+  background-color: #81C784;
+}
+
+.tag.adventure {
+  background-color: #FFB74D;
+  color: #4E342E;
+}
+
+.tag.city {
+  background-color: #64B5F6;
+}

@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Background */
+body {
+  background: linear-gradient(180deg, #F5FBFF, #FFFFFF);
+  color: #1f2937;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* App Container */
+.app-container {
+  width: 100%;
+  max-width: 1200px;
+  background: transparent;
+}
+
+/* Header / Hero Bar */
+.top-bar {
+  background: linear-gradient(135deg, #0288D1, #4FC3F7); /* UPDATED */
+  color: white;
+  border-radius: 16px;
+  padding: 20px 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  box-shadow: 0 12px 30px rgba(2, 136, 209, 0.35);
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.profile-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Banner */
+.banner {
+  width: 100%;
+  height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.15);
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Search Row */
+.search-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.search-row input {
+  flex: 1;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #E0F2FE;
+  background: #FFFFFF;
+  font-size: 0.95rem;
+}
+
+.search-row button {
+  padding: 14px 20px;
+  border-radius: 12px;
+  border: none;
+  background: #0288D1; /* UPDATED */
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.search-row button:hover {
+  background: #0277BD;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 40px;
+}
+
+.section h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+/* Cards */
+.card-row {
+  display: flex;
+  gap: 20px;
+}
+
+.card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card.small {
+  width: 180px;
+  height: 130px;
+}
+
+.card.large {
+  width: 280px;
+  height: 220px;
+}
+
+/* Plan a trip button (Primary CTA) */
+.plan-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  padding: 16px 24px;
+  background: #FF9800; /* UPDATED */
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(255, 152, 0, 0.45);
+  cursor: pointer;
+}
+
+.plan-btn:hover {
+  background: #FB8C00;
+}
+
+/* Image Cards */
+.image-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Image overlay */
+.image-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55),
+    rgba(0, 0, 0, 0.05)
+  );
+}
+
+/* Card Title */
+.card-title {
+  position: absolute;
+  bottom: 16px;
+  left: 18px;
+  color: #FFFFFF;
+  font-size: 1.05rem;
+  font-weight: 700;
+  z-index: 2;
+}
+
+/* Hover */
+.image-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Previous Trips text overlay */
+.trip-info {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  z-index: 2;
+  color: #FFFFFF;
+}
+
+.trip-info h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.trip-info p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
