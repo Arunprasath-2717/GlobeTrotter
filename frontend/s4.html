@@ -4,75 +4,65 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GlobalTrotter – Create New Trip</title>
-
-  <!-- Link CSS -->
   <link rel="stylesheet" href="s4.css" />
 </head>
 <body>
 
-  <header>GlobalTrotter</header>
+<header>
+  <div class="logo">🌴 GlobalTrotter</div>
+</header>
 
-  <div class="container">
+<main class="container">
 
-    <div class="form-card">
-      <div class="form-row">
-        <label>Plan a new trip</label>
-        <input type="text" value="Beach Vacation" />
-      </div>
+  <!-- Trip Form -->
+  <section class="form-card">
+    <h2>Create Your Beach Trip</h2>
 
-      <div class="form-row">
-        <label>Start Date</label>
-        <input type="date" value="2026-03-10" />
-      </div>
-
-      <div class="form-row">
-        <label>Select a Place</label>
-        <input type="text" value="Goa, India" />
-      </div>
-
-      <div class="form-row">
-        <label>End Date</label>
-        <input type="date" value="2026-03-15" />
-      </div>
+    <div class="form-row">
+      <label>Trip Name</label>
+      <input type="text" id="tripName" placeholder="Beach Vacation" />
     </div>
 
-    <div class="suggestions-title">
-      Suggestions for Places to Visit / Activities to Perform
+    <div class="form-row">
+      <label>Start Date</label>
+      <input type="date" id="startDate" />
     </div>
 
-    <div class="suggestions-grid">
-      <div class="suggestion-card">
-        <h4>Baga Beach</h4>
-        <p>Popular beach known for nightlife, water sports, and beach shacks.</p>
-      </div>
-
-      <div class="suggestion-card">
-        <h4>Scuba Diving</h4>
-        <p>Explore vibrant marine life with guided scuba diving sessions.</p>
-      </div>
-
-      <div class="suggestion-card">
-        <h4>Dolphin Watching</h4>
-        <p>Early morning boat ride to spot playful dolphins.</p>
-      </div>
-
-      <div class="suggestion-card">
-        <h4>Anjuna Beach</h4>
-        <p>Relaxed vibes, sunset views, and famous flea market.</p>
-      </div>
-
-      <div class="suggestion-card">
-        <h4>Beachside Yoga</h4>
-        <p>Morning yoga sessions with calming sea breeze.</p>
-      </div>
-
-      <div class="suggestion-card">
-        <h4>Seafood Dining</h4>
-        <p>Enjoy fresh seafood at local coastal restaurants.</p>
-      </div>
+    <div class="form-row">
+      <label>End Date</label>
+      <input type="date" id="endDate" />
     </div>
-  </div>
 
-  
+    <div class="form-row">
+      <label>Destination</label>
+      <input type="text" id="place" placeholder="Goa, India" />
+    </div>
+  </section>
+
+  <!-- Controls -->
+  <section class="controls">
+    <input type="text" id="search" placeholder="🔍 Search activities..." />
+
+    <select id="group">
+      <option value="all">Group By</option>
+      <option value="place">Place</option>
+      <option value="activity">Activity</option>
+    </select>
+
+    <select id="sort">
+      <option value="az">Sort A–Z</option>
+      <option value="za">Sort Z–A</option>
+    </select>
+  </section>
+
+  <!-- Suggestions -->
+  <section>
+    <h3>Beach Trip Activities</h3>
+    <div id="cards" class="suggestions-grid"></div>
+  </section>
+
+</main>
+
+<script src="s4.js"></script>
 </body>
 </html>
