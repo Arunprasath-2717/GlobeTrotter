@@ -1,68 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>GlobeTrotter | Community</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>GlobeTrotter – Journey Timeline</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
 <!-- TOP NAV -->
-<header class="top-nav">
+<header class="topbar">
   <div class="logo">🌍 GlobeTrotter</div>
-
-  <nav class="nav-links">
+  <nav>
     <a href="#">Plan</a>
-    <a href="#">Timeline</a>
-    <a class="active">Community</a>
+    <a class="active" href="#">Timeline</a>
+    <a href="#">Community</a>
     <a href="#">Public</a>
   </nav>
-
-  <div class="nav-actions">
-    <i class="bi bi-search"></i>
-    <i class="bi bi-bell"></i>
-    <i class="bi bi-person-circle"></i>
-  </div>
 </header>
 
-<!-- FILTER BAR -->
-<section class="filter-bar">
-  <input type="text" placeholder="Search experiences...">
-  <button>Group By</button>
-  <button>Filter</button>
-  <button>Sort</button>
-</section>
+<main class="workspace">
 
-<!-- MAIN -->
-<main class="community-layout">
+  <!-- MAIN PANEL -->
+  <section class="main-panel">
+    <div class="panel-header">
+      <h2>Your Journey Timeline</h2>
+      <span class="subtitle">Plan your days visually with time & dates</span>
+    </div>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <h5>Explore</h5>
-    <ul>
-      <li class="active">All Experiences</li>
-      <li>Cities</li>
-      <li>Activities</li>
-      <li>Budget Trips</li>
-      <li>Saved</li>
-    </ul>
+    <button class="add-btn" onclick="addDay()">+ Add Day</button>
+
+    <!-- CALENDAR -->
+    <div id="calendar" class="calendar"></div>
+
+    <!-- TIMELINE -->
+    <div id="timeline" class="timeline"></div>
+  </section>
+
+  <!-- COMMUNITY PANEL -->
+  <aside class="community-panel">
+    <div class="community-header">
+      <h3>Community Inspiration</h3>
+      <button class="community-share-btn" onclick="openShareModal()">+ Share Experience</button>
+    </div>
+
+    <input class="community-search" placeholder="Search experiences..." />
+
+    <div id="communityList"></div>
   </aside>
-
-  <!-- FEED -->
-  <section class="feed" id="feed"></section>
 
 </main>
 
-<!-- FLOATING ACTION -->
-<button class="fab">
-  <i class="bi bi-plus"></i> Share Experience
-</button>
+<!-- SHARE MODAL -->
+<div id="shareModal" class="modal">
+  <div class="modal-content">
+    <h3>Share Your Experience</h3>
+    <input id="expCity" placeholder="City (e.g. Goa)" />
+    <textarea id="expText" placeholder="Describe your trip..."></textarea>
+
+    <div class="modal-actions">
+      <button class="btn-primary" onclick="submitExperience()">Share</button>
+      <button class="btn-secondary" onclick="closeShareModal()">Not now</button>
+    </div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
