@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #ffffff;
+  color: #102a43;
+}
+
+/* Header */
+header {
+  padding: 12px 20px;
+  background: #ffffff;
+  border-bottom: 3px solid #2ec4b6;
+  font-weight: bold;
+  color: #0b7285;
+}
+
+/* Layout */
+.container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
+
+/* Section Card */
+.section-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid #2ec4b6;
+}
+
+.section-card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: #0ca678;
+}
+
+.section-card p {
+  margin: 0 0 14px;
+  font-size: 14px;
+  color: #495057;
+}
+
+/* Inputs */
+.inputs-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.inputs-row input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 2px solid #e7f5ff;
+  font-size: 14px;
+}
+
+.inputs-row input:focus {
+  outline: none;
+  border-color: #339af0;
+  box-shadow: 0 0 0 2px rgba(51, 154, 240, 0.25);
+}
+
+/* Add Section Button */
+.add-section {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.add-section button {
+  padding: 14px 24px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, #2ec4b6, #38d9a9);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(46, 196, 182, 0.35);
+}
+
+.add-section button:hover {
+  transform: translateY(-2px);
+}
