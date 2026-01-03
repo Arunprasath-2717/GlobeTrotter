@@ -1,0 +1,176 @@
+:root {
+  --sky: #4FC3F7;
+  --ocean: #0288D1;
+  --green: #2ECC71;
+  --bg: #F9FBFD;
+  --text: #2C3E50;
+  --muted: #607D8B;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* TOP NAV */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 36px;
+  background: linear-gradient(135deg, var(--sky), var(--ocean));
+  color: white;
+}
+
+.logo {
+  font-weight: 700;
+}
+
+.nav-links a {
+  margin: 0 12px;
+  color: white;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.nav-links .active {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.nav-actions i {
+  margin-left: 16px;
+  font-size: 18px;
+}
+
+/* FILTER BAR */
+.filter-bar {
+  display: flex;
+  gap: 12px;
+  padding: 16px 36px;
+  background: white;
+}
+
+.filter-bar input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+}
+
+.filter-bar button {
+  border-radius: 20px;
+  padding: 8px 16px;
+  border: none;
+  background: #ECF3FA;
+  font-weight: 500;
+}
+
+/* LAYOUT */
+.community-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  padding: 30px 36px;
+  gap: 30px;
+}
+
+/* SIDEBAR */
+.sidebar {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 10px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.sidebar .active {
+  background: #E3F2FD;
+  font-weight: 600;
+}
+
+/* FEED */
+.feed {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* POST CARD */
+.post {
+  background: white;
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #CFD8DC;
+}
+
+.post-header h6 {
+  margin: 0;
+}
+
+.tag {
+  background: var(--green);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.post-body {
+  margin: 14px 0;
+  color: var(--muted);
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-actions button {
+  border: none;
+  background: none;
+  font-weight: 500;
+  color: var(--ocean);
+}
+
+/* FAB */
+.fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--green);
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 30px;
+  font-weight: 600;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+}

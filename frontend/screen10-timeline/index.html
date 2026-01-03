@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GlobeTrotter | Community</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- TOP NAV -->
+<header class="top-nav">
+  <div class="logo">🌍 GlobeTrotter</div>
+
+  <nav class="nav-links">
+    <a href="#">Plan</a>
+    <a href="#">Timeline</a>
+    <a class="active">Community</a>
+    <a href="#">Public</a>
+  </nav>
+
+  <div class="nav-actions">
+    <i class="bi bi-search"></i>
+    <i class="bi bi-bell"></i>
+    <i class="bi bi-person-circle"></i>
+  </div>
+</header>
+
+<!-- FILTER BAR -->
+<section class="filter-bar">
+  <input type="text" placeholder="Search experiences...">
+  <button>Group By</button>
+  <button>Filter</button>
+  <button>Sort</button>
+</section>
+
+<!-- MAIN -->
+<main class="community-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <h5>Explore</h5>
+    <ul>
+      <li class="active">All Experiences</li>
+      <li>Cities</li>
+      <li>Activities</li>
+      <li>Budget Trips</li>
+      <li>Saved</li>
+    </ul>
+  </aside>
+
+  <!-- FEED -->
+  <section class="feed" id="feed"></section>
+
+</main>
+
+<!-- FLOATING ACTION -->
+<button class="fab">
+  <i class="bi bi-plus"></i> Share Experience
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
