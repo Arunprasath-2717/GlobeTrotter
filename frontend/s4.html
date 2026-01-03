@@ -4,108 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GlobalTrotter – Create New Trip</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #ffffff;
-      color: #102a43;
-    }
 
-    /* Header */
-    header {
-      padding: 14px 20px;
-      background: #ffffff;
-      border-bottom: 3px solid #2ec4b6;
-      font-weight: bold;
-      color: #0b7285;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 20px auto;
-      padding: 0 16px;
-    }
-
-    .screen-title {
-      font-size: 20px;
-      margin-bottom: 16px;
-      color: #1c7ed6;
-    }
-
-    /* Form section */
-    .form-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-      margin-bottom: 24px;
-    }
-
-    .form-row {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 14px;
-    }
-
-    .form-row label {
-      font-weight: 600;
-      color: #0ca678;
-    }
-
-    .form-row input {
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 2px solid #e7f5ff;
-      font-size: 14px;
-    }
-
-    .form-row input:focus {
-      outline: none;
-      border-color: #339af0;
-      box-shadow: 0 0 0 2px rgba(51, 154, 240, 0.25);
-    }
-
-    /* Suggestions */
-    .suggestions-title {
-      font-size: 18px;
-      margin-bottom: 14px;
-      color: #0b7285;
-    }
-
-    .suggestions-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-    }
-
-    .suggestion-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      border-top: 6px solid #2ec4b6;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .suggestion-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
-    }
-
-    .suggestion-card h4 {
-      margin: 0 0 8px 0;
-      color: #0ca678;
-    }
-
-    .suggestion-card p {
-      margin: 0;
-      font-size: 14px;
-      color: #495057;
-    }
-  </style>
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -135,7 +36,9 @@
       </div>
     </div>
 
-    <div class="suggestions-title">Suggestions for Places to Visit / Activities to Perform</div>
+    <div class="suggestions-title">
+      Suggestions for Places to Visit / Activities to Perform
+    </div>
 
     <div class="suggestions-grid">
       <div class="suggestion-card">
@@ -170,5 +73,7 @@
     </div>
   </div>
 
+  <!-- Link JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
