@@ -1,47 +1,45 @@
-// Load user data from register form (localStorage simulation)
-function loadUserData() {
-  // In real app: fetch from backend or localStorage
-  const userData = {
-    firstName: "Dulful",
-    lastName: "Haresh",
-    email: "dulful@example.com",
-    phone: "+91 9876543210",
-    country: "India",
-    city: "Bengaluru",
-    profilePic: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=200&h=200&fit=crop&crop=face"
-  };
+// profile.js - Load from Firestore
+import { auth, db } from './js/config.js';
+import { 
+  onAuthStateChanged, 
+  signOut 
+} from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
+import { 
+  doc, getDoc 
+} from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js';
 
-  // Update DOM
-  document.getElementById('userFullName').textContent = `${userData.firstName} ${userData.lastName}`;
-  document.getElementById('profileImage').src = userData.profilePic;
-  
-  console.log('User data loaded:', userData);
-}
-
-// Event listeners
 document.addEventListener('DOMContentLoaded', function() {
-  loadUserData();
-
-  // Edit buttons
-  document.querySelector('.edit-image-btn').addEventListener('click', () => {
-    alert('Upload new profile picture');
-  });
-
-  document.querySelector('.edit-profile-btn').addEventListener('click', () => {
-    alert('Redirect to edit profile form');
-  });
-
-  // Trip cards
-  document.querySelectorAll('.trip-card').forEach(card => {
-    card.addEventListener('click', (e) => {
-      if (!e.target.classList.contains('trip-action')) {
-        card.classList.toggle('active');
+  onAuthStateChanged(auth, async (user) => {
+    if (user) {
+      // Get user profile from Firestore
+      const userDoc = await getDoc(doc(db, 'users', user.uid));
+      
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        
+        // Update profile display
+        document.getElementById('userFullName').textContent = 
+          `${userData.firstName} ${userData.lastName}`;
+        
+        document.getElementById('profileEmail').textContent = userData.email;
+        document.getElementById('profilePhone').textContent = userData.phone;
+        document.getElementById('profileCity').textContent = `${userData.city}, ${userData.country}`;
+        
+        if (userData.profilePic) {
+          document.getElementById('profileImage').src = 
+            `https://your-storage-url/${userData.profilePic}`; // Later with Storage
+        }
+        
+        console.log('✅ Profile loaded:', userData);
       }
-    });
+    } else {
+      window.location.href = '/frontend/register.html';
+    }
   });
 
-  // Back button
-  document.querySelector('.back-btn').addEventListener('click', () => {
-    history.back();
+  // Logout
+  document.getElementById('logoutBtn').addEventListener('click', async () => {
+    await signOut(auth);
+    window.location.href = '/frontend/index.html';
   });
 });

@@ -1,39 +1,27 @@
-// register.js - Fixes SVG overlap + form handling
-document.addEventListener('DOMContentLoaded', function() {
-  // Profile picture preview with SVG hide fix
-  const profilePicInput = document.getElementById('profilePic');
-  const preview = document.querySelector('.profile-pic-preview');
-  const svgPlaceholder = document.querySelector('.profile-pic-placeholder');
+// register.js - Save to Firestore
+import { auth, db } from './js/config.js'; // Your existing config
+import { 
+  createUserWithEmailAndPassword, 
+  updateProfile 
+} from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js';
+import { 
+  doc, setDoc 
+} from 'https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js';
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Profile picture (your existing code)
+  const profilePicInput = document.getElementById('profilePic');
+  let profilePicFile = null;
+  
   profilePicInput.addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        // Set background image
-        preview.style.backgroundImage = `url(${event.target.result})`;
-        preview.style.backgroundSize = 'cover';
-        preview.style.backgroundPosition = 'center';
-        
-        // Hide SVG completely
-        if (svgPlaceholder) {
-          svgPlaceholder.style.display = 'none';
-        }
-        
-        // Add has-image class for CSS styling
-        preview.classList.add('has-image');
-      };
-      reader.readAsDataURL(file);
-    }
+    profilePicFile = e.target.files[0];
+    // Your existing preview code...
   });
 
-  // Form submission with all data collection
-  const form = document.querySelector('form');
-  form.addEventListener('submit', function(e) {
+  // Register form submission
+  document.querySelector('form').addEventListener('submit', async function(e) {
     e.preventDefault();
     
-    // Collect all form data
     const formData = {
       firstName: document.getElementById('firstName').value,
       lastName: document.getElementById('lastName').value,
@@ -42,20 +30,34 @@ document.addEventListener('DOMContentLoaded', function() {
       country: document.getElementById('country').value,
       city: document.getElementById('city').value,
       additional: document.getElementById('additional').value,
-      profilePic: profilePicInput.files[0] ? profilePicInput.files[0].name : null
+      profilePic: profilePicFile ? profilePicFile.name : null,
+      createdAt: new Date().toISOString()
     };
 
-    console.log('Form Data:', formData); // For debugging
-    
-    // Simulate save (replace with Firebase/backend)
-    alert(`Registration successful!\n\n${JSON.stringify(formData, null, 2)}`);
-    
-    // Save to localStorage (for profile page demo)
-    localStorage.setItem('userData', JSON.stringify(formData));
-    
-    // Redirect to profile
-    setTimeout(() => {
+    try {
+      // 1. Create user with email/password
+      const userCredential = await createUserWithEmailAndPassword(
+        auth, 
+        formData.email, 
+        'tempPassword123' // Auto-generate or add password field
+      );
+      
+      const user = userCredential.user;
+      
+      // 2. Update display name
+      await updateProfile(user, {
+        displayName: `${formData.firstName} ${formData.lastName}`
+      });
+      
+      // 3. Save full profile to Firestore
+      await setDoc(doc(db, 'users', user.uid), formData);
+      
+      alert('✅ Registration successful! Data saved to Firestore');
       window.location.href = '/frontend/profile.html';
-    }, 1500);
+      
+    } catch (error) {
+      console.error('Registration error:', error);
+      alert('❌ Error: ' + error.message);
+    }
   });
 });
