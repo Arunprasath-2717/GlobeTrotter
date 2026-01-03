@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlobalTrotter – Beach Activities</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: #ffffff;
+    }
+
+    /* Top bar */
+    header {
+      padding: 12px 20px;
+      background: rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .container {
+      padding: 16px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* Search + controls */
+    .search-controls {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .search-controls input,
+    .search-controls select {
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+    }
+
+    .search-controls input {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .search-controls select {
+      background: #f1f1f1;
+    }
+
+    .results-title {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    /* Cards */
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .card h3 {
+      margin: 0 0 6px 0;
+      font-size: 16px;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    .tag {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .sunset { background: #ff6f61; }
+    .adventure { background: #2ecc71; }
+    .relax { background: #3498db; }
+
+    /* Hover popup */
+    .card::after {
+      content: attr(data-popup);
+      position: absolute;
+      bottom: 110%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 12px;
+      font-size: 13px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top bar -->
+  <header>
+    <div class="logo">GlobalTrotter</div>
+  </header>
+
+  <div class="container">
+    <!-- Search & filters -->
+    <div class="search-controls">
+      <input type="text" id="searchInput" placeholder="Search activities (e.g., surfing, yoga)" />
+
+      <select id="groupBy">
+        <option value="">Group by</option>
+        <option value="type">Activity Type</option>
+      </select>
+
+      <select id="filterBy">
+        <option value="">Filter</option>
+        <option value="adventure">Adventure</option>
+        <option value="relax">Relax</option>
+        <option value="sunset">Sunset</option>
+      </select>
+
+      <select id="sortBy">
+        <option value="">Sort by</option>
+        <option value="name">Name</option>
+      </select>
+    </div>
+
+    <div class="results-title">Results</div>
+
+    <div id="results">
+      <div class="card" data-popup="Perfect during golden hour" data-type="sunset">
+        <div>
+          <h3>Sunset Beach Walk</h3>
+          <p>Relaxing walk along the shore</p>
+        </div>
+        <div class="tag sunset">Sunset</div>
+      </div>
+
+      <div class="card" data-popup="Professional instructors included" data-type="adventure">
+        <div>
+          <h3>Surfing Adventure</h3>
+          <p>Ride the waves safely</p>
+        </div>
+        <div class="tag adventure">Adventure</div>
+      </div>
+
+      <div class="card" data-popup="Best for early mornings" data-type="relax">
+        <div>
+          <h3>Beach Yoga</h3>
+          <p>Calm your mind by the sea</p>
+        </div>
+        <div class="tag relax">Relax</div>
+      </div>
+
+      <div class="card" data-popup="Explore coral reefs" data-type="adventure">
+        <div>
+          <h3>Snorkeling Tour</h3>
+          <p>Discover underwater life</p>
+        </div>
+        <div class="tag adventure">Adventure</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2026 GlobalTrotter</footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const filterBy = document.getElementById('filterBy');
+    const cards = document.querySelectorAll('.card');
+
+    function applyFilters() {
+      const query = searchInput.value.toLowerCase();
+      const filter = filterBy.value;
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        const type = card.dataset.type;
+
+        const matchesSearch = text.includes(query);
+        const matchesFilter = !filter || filter === type;
+
+        card.style.display = matchesSearch && matchesFilter ? 'flex' : 'none';
+      });
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+    filterBy.addEventListener('change', applyFilters);
+  </script>
+</body>
+</html>
