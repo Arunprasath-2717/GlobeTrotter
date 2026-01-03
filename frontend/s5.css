@@ -1,13 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background: #ffffff;
   color: #102a43;
 }
 
 /* Header */
 header {
-  padding: 12px 20px;
+  padding: 14px 20px;
   background: #ffffff;
   border-bottom: 3px solid #2ec4b6;
   font-weight: bold;
@@ -17,8 +21,14 @@ header {
 /* Layout */
 .container {
   max-width: 900px;
-  margin: 20px auto;
-  padding: 0 16px;
+  margin: auto;
+  padding: 20px 16px;
+}
+
+.screen-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #1c7ed6;
 }
 
 /* Section Card */
@@ -26,19 +36,19 @@ header {
   background: #ffffff;
   border-radius: 16px;
   padding: 18px 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  margin-bottom: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   border-left: 6px solid #2ec4b6;
 }
 
 .section-card h3 {
-  margin: 0 0 8px;
-  font-size: 16px;
+  margin: 0 0 6px;
   color: #0ca678;
+  font-size: 16px;
 }
 
 .section-card p {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   font-size: 14px;
   color: #495057;
 }
@@ -52,23 +62,23 @@ header {
 
 .inputs-row input {
   flex: 1;
+  min-width: 140px;
   padding: 10px 12px;
   border-radius: 10px;
   border: 2px solid #e7f5ff;
-  font-size: 14px;
 }
 
 .inputs-row input:focus {
   outline: none;
   border-color: #339af0;
-  box-shadow: 0 0 0 2px rgba(51, 154, 240, 0.25);
+  box-shadow: 0 0 0 2px rgba(51,154,240,0.25);
 }
 
-/* Add Section Button */
+/* Button */
 .add-section {
   display: flex;
   justify-content: center;
-  margin: 30px 0;
+  margin-top: 30px;
 }
 
 .add-section button {
@@ -76,13 +86,20 @@ header {
   border-radius: 14px;
   border: none;
   background: linear-gradient(135deg, #2ec4b6, #38d9a9);
-  color: #ffffff;
+  color: #fff;
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 10px 20px rgba(46, 196, 182, 0.35);
+  box-shadow: 0 10px 20px rgba(46,196,182,0.35);
 }
 
 .add-section button:hover {
   transform: translateY(-2px);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .inputs-row {
+    flex-direction: column;
+  }
 }
