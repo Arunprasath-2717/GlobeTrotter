@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+}
+
+/* Header */
+header {
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+/* Layout */
+.container {
+  padding: 16px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Search controls */
+.search-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.search-controls input,
+.search-controls select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+}
+
+.search-controls input {
+  flex: 1;
+  min-width: 220px;
+}
+
+.search-controls select {
+  background: #f1f1f1;
+}
+
+.results-title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Cards */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  position: relative;
+  cursor: pointer;
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.card p {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+/* Tags */
+.tag {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.sunset { background: #ff6f61; }
+.adventure { background: #2ecc71; }
+.relax { background: #3498db; }
+
+/* Hover popup */
+.card::after {
+  content: attr(data-popup);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+  opacity: 0.6;
+}
