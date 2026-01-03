@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | GlobeTrotter</title>
+  <link rel="stylesheet" href="/frontend/register.css" />
+</head>
+<body>
+  <main class="register-form">
+    <h1 class="form-title">Register</h1>
+    
+    <!-- Profile Picture Section -->
+    <div class="profile-pic-section">
+      <div class="profile-pic-container">
+        <div class="profile-pic-preview">
+          <svg class="profile-pic-placeholder" viewBox="0 0 120 120" fill="none">
+            <circle cx="60" cy="60" r="60" fill="#e2e8f0"/>
+            <path d="M60 25C45 25 33 37 33 52C33 62 42 70 55 70C58 70 60 68 60 68C60 68 62 70 65 70C78 70 87 62 87 52C87 37 75 25 60 25Z" fill="#cbd5e1"/>
+            <circle cx="48" cy="45" r="5" fill="#64748b"/>
+            <circle cx="72" cy="45" r="5" fill="#64748b"/>
+            <path d="M40 58C40 58 50 65 60 65C70 65 80 58 80 58" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <input type="file" id="profilePic" accept="image/*" class="profile-pic-upload" />
+        </div>
+        <label for="profilePic" class="profile-pic-label">Choose photo</label>
+      </div>
+    </div>
+    
+    <form>
+  <!-- Names row -->
+  <div class="form-row">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" placeholder="First Name" required />
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" placeholder="Last Name" required />
+    </div>
+  </div>
+
+  <!-- Email + Phone row -->
+  <div class="form-row">
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" required />
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="Phone Number" />
+    </div>
+  </div>
+
+  <!-- Country + City row -->
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" id="city" placeholder="City" />
+    </div>
+
+  <div class="form-group">
+      <label for="country">Country</label>
+      <input type="text" id="country" placeholder="Country" />
+    </div>
+  </div>
+  
+
+  <!-- Additional info -->
+  <div class="form-group">
+    <label for="additional">Additional Information</label>
+    <textarea 
+      id="additional" 
+      rows="3" 
+      placeholder="Tell us more about yourself..."
+    ></textarea>
+  </div>
+
+  <button type="submit" class="signup-btn">Register User</button>
+</form>
+
+    <div class="login-link">
+      Already have an account? <a href="/frontend/index.html">Login</a>
+    </div>
+  </main>
+
+  <script>
+    // Profile picture preview
+    document.getElementById('profilePic').addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      const preview = document.querySelector('.profile-pic-preview');
+      
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          preview.style.backgroundImage = `url(${e.target.result})`;
+          preview.classList.add('has-image');
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Form submission
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Form submitted with profile picture!');
+    });
+  </script>
+
+  <script type="module" src="/frontend/register.js"></script>
+
+</body>
+</html>

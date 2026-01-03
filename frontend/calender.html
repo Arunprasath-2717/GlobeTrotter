@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GlobeTrotter Calendar</title>
+  
+  <!-- FullCalendar CDN -->
+  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.css' rel='stylesheet' />
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+  
+  <link rel="stylesheet" href="/frontend/calender.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <h1>GlobeTrotter</h1>
+      </div>
+      <div class="header-center">
+        <input type="text" class="search" placeholder="Search trips...">
+        <button class="btn-icon" aria-label="Search">🔍</button>
+      </div>
+      <div class="header-right">
+        <button class="btn-icon filter-btn" aria-label="Filter">🎛️</button>
+        <button class="btn-icon settings-btn" aria-label="Settings">🔧</button>
+        <button class="btn-icon sort-btn" aria-label="Sort">↕️</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="trip-card active" data-trip="nyc">
+          <div class="trip-badge">Paris</div>
+          <h3>Mysterious Crab</h3>
+          <p>Jan 15-22</p>
+        </div>
+        <div class="trip-card" data-trip="paris">
+          <div class="trip-badge">NYC</div>
+          <h3>NYC Getaway</h3>
+          <p>Jan 28-30</p>
+        </div>
+        <div class="trip-card" data-trip="japan">
+          <div class="trip-badge">Japan</div>
+          <h3>Japan Adventure</h3>
+          <p>Jan 23-25</p>
+        </div>
+      </aside>
+
+      <!-- FullCalendar -->
+      <div id='calendar'></div>
+    </main>
+  </div>
+
+  <script src="/frontend/calender.js"></script>
+</body>
+</html>

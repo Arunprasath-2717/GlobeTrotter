@@ -1,0 +1,277 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-primary: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  --bg-secondary: linear-gradient(135deg, #ffecd2 0%, #fcb69f 50%, #ff8a80 100%);
+  --card-bg: rgba(255, 255, 255, 0.95);
+  --text-primary: #1a1a2e;
+  --text-secondary: #4a5568;
+  --accent-blue: #4299e1;
+  --accent-pink: #ed64a6;
+  --accent-green: #48bb78;
+  --accent-orange: #ed8936;
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  --glow: 0 0 20px rgba(102, 126, 234, 0.4);
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120,119,198,0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120,219,226,0.3) 0%, transparent 50%);
+  z-index: -1;
+}
+
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  backdrop-filter: blur(10px);
+}
+
+/* ✨ Header */
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 2px 10px rgba(66, 153, 225, 0.3);
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  flex: 1;
+  max-width: 450px;
+  margin: 0 3rem;
+  box-shadow: var(--glow);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.search {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  flex: 1;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.search::placeholder {
+  color: var(--text-secondary);
+}
+
+.btn-icon {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+  border: none;
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(66, 153, 225, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-icon:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(66, 153, 225, 0.6);
+}
+
+/* 🌈 Main Layout */
+.main {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+}
+
+/* 💎 Sidebar */
+.sidebar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 2.5rem 1.5rem;
+  overflow-y: auto;
+  box-shadow: var(--shadow);
+}
+
+.trip-card {
+  background: white;
+  border-radius: 20px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.trip-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-pink));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.trip-card:hover {
+  transform: translateX(12px) scale(1.02);
+  box-shadow: var(--shadow);
+}
+
+.trip-card:hover::before {
+  opacity: 1;
+}
+
+.trip-card.active {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-pink));
+  color: white;
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.4);
+}
+
+.trip-card.active .trip-badge {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.trip-badge {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  padding: 0.4rem 1rem;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(252, 182, 159, 0.4);
+}
+
+.trip-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.trip-card p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* 🎯 FullCalendar */
+#calendar {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 2rem;
+  margin: 2rem;
+  height: calc(100% - 4rem);
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* FullCalendar Custom Colors */
+.fc {
+  --fc-border-color: rgba(255, 255, 255, 0.2);
+  --fc-page-bg-color: transparent;
+  --fc-neutral-bg-color: rgba(255, 255, 255, 0.7);
+  --fc-today-bg-color: rgba(72, 187, 120, 0.2);
+  --fc-button-text-color: white;
+}
+
+.fc .fc-button {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-green)) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  box-shadow: 0 6px 16px rgba(66, 153, 225, 0.4) !important;
+}
+
+.fc .fc-button:hover {
+  background: linear-gradient(135deg, var(--accent-green), var(--accent-orange)) !important;
+  transform: translateY(-1px) !important;
+}
+
+.fc-daygrid-day-number {
+  color: var(--text-primary) !important;
+  font-weight: 600;
+}
+
+.fc-daygrid-day.fc-day-today {
+  background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange)) !important;
+  color: white !important;
+  border-radius: 12px !important;
+}
+
+.fc-event {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .main {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 320px;
+    height: 100vh;
+    z-index: 100;
+    transition: left 0.3s;
+  }
+  #calendar {
+    margin: 1rem;
+  }
+}

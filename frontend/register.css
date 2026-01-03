@@ -1,0 +1,210 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #E8F5E9;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.register-form {
+  background: white;
+  border-radius: 20px;
+  padding: 1.25rem 1.75rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 600px;
+}
+
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+/* Profile Picture Section */
+.profile-pic-section {
+  margin-bottom: 1rem;
+}
+
+.profile-pic-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.profile-pic-preview {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  border: 3px dashed #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+  position: relative;
+}
+
+.profile-pic-preview:hover {
+  border-color: #66BB6A;
+  transform: scale(1.05);
+}
+
+.profile-pic-preview.has-image {
+  border-style: solid;
+  border-width: 4px;
+  border-color: #66BB6A;
+}
+
+.profile-pic-placeholder {
+  width: 50px;
+  height: 50px;
+}
+
+.profile-pic-upload {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.profile-pic-label {
+  font-size: 0.875rem;
+  color: #66BB6A;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.profile-pic-label:hover {
+  text-decoration: underline;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-color: #607D8B;
+  color: #66BB6A;
+  margin-bottom: 0.5rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #66BB6A;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 0.875rem;
+  background: #2ECC71;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.signup-btn:hover {
+  transform: translateY(-1px);
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.login-link a {
+  color: #2ECC71;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .register-form {
+    margin: 1rem;
+    padding: 1.75rem;
+  }
+
+  .profile-pic-preview {
+  position: relative;
+  overflow: hidden; /* Critical: clips SVG */
+}
+
+.profile-pic-preview.has-image {
+  border-style: solid !important;
+}
+
+.profile-pic-preview .profile-pic-placeholder {
+  position: absolute;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.profile-pic-preview.has-image .profile-pic-placeholder {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.profile-pic-upload {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  cursor: pointer;
+}
+
+}
